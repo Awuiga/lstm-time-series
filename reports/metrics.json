@@ -1,0 +1,66 @@
+{
+  "evaluation_date": "2026-11-21",
+  "rows": 3650,
+  "period": [
+    "1981-01-01",
+    "1990-12-31"
+  ],
+  "train_rows": 2555,
+  "train_windows": 2525,
+  "non_daily_gaps": 2,
+  "configuration": {
+    "input_size": 1,
+    "hidden_size": 128,
+    "window_size": 30,
+    "mean": 10.981996086105676,
+    "std": 4.088980541841533
+  },
+  "parameters": 67201,
+  "validation": {
+    "rows": 547,
+    "windows": 517,
+    "target_start": "1988-01-31",
+    "target_end": "1989-07-01",
+    "lstm": {
+      "rmse_celsius": 2.2985725390446645,
+      "mae_celsius": 1.831433805707287
+    },
+    "baseline": {
+      "rmse_celsius": 2.6268219246073152,
+      "mae_celsius": 2.0112185686653774
+    }
+  },
+  "test": {
+    "rows": 548,
+    "windows": 518,
+    "target_start": "1989-08-01",
+    "target_end": "1990-12-31",
+    "lstm": {
+      "rmse_celsius": 2.236376295735538,
+      "mae_celsius": 1.7404601972537426
+    },
+    "baseline": {
+      "rmse_celsius": 2.5953031529280843,
+      "mae_celsius": 2.048262548262548
+    }
+  },
+  "next_observation_forecast_celsius": 13.1934326743078,
+  "checkpoint_sha256": "cfa26ec1acecac03a8248b2530bcff643c3f6939a3d9491f1215ffa056160195",
+  "csv_sha256": "9ecda283925cb363b272067fe5a67e5e8292a9f26270059ac40d4bc7a00f1fd8",
+  "environment": {
+    "python": "3.13.2",
+    "torch": "2.10.0+cu126",
+    "pandas": "3.1.1",
+    "numpy": "2.5.4",
+    "device": "cuda"
+  },
+  "notes": [
+    "Saved user weights evaluated without training or tuning.",
+    "Chronological 70/15/15 split; windows formed separately inside each split.",
+    "Mean/std fit on train only; checkpoint values matched reconstructed train.",
+    "Rolling one-step evaluation uses true past temperatures, including past test observations.",
+    "Baseline is previous observed temperature on the exact same target dates.",
+    "Checkpoint does not store dataset hash, training epoch or split indices.",
+    "Latest forecast has no observed target in the supplied file."
+  ]
+}
